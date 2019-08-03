@@ -14,6 +14,19 @@ search.addEventListener("click", function () {
     text.value = "";
 });
 
+function catGet() {
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+        if (req.readyState == 4 && req.status == 200) {
+            var cat = req.responseText;
+        }
+    };
+
+    req.open("GET", "https://api.thecatapi.com/v1/images/search?size=full", true);
+    req.send();
+}
+
 var Cat = function (_React$Component) {
     _inherits(Cat, _React$Component);
 
@@ -26,14 +39,12 @@ var Cat = function (_React$Component) {
     _createClass(Cat, [{
         key: "render",
         value: function render() {
-            return null;
+            var a = new catGet();
+            return a.cat;
         }
     }]);
 
     return Cat;
 }(React.Component);
 
-/*ReactDOM.render(
-    <Cat />,
-    document.getElementById("carea")
-);*/
+ReactDOM.render(React.createElement(Cat, null), document.getElementById("carea"));
