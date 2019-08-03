@@ -1,6 +1,7 @@
 doctype html
 head
     title Cat Pics
+    meta(charset="utf-8")
     link(href="style.css", rel="stylesheet", type="text/css")
 body
     h1 something will be here soon!
@@ -9,7 +10,7 @@ body
             input(type="text")#query
             button.sbutton Search
             button.sbutton Random 
-        div.catpics
+        div.catpics#carea
     script(src="https://unpkg.com/react@16/umd/react.development.js" crossorgin)
     script(src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorgin)
-    script(src="script.js")
+    script(src="script.js" type="module")
