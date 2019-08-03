@@ -1,0 +1,24 @@
+{
+  "name": "CatSite",
+  "version": "1.0.0",
+  "description": "This will be a site where some cats can be searched and saved.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrisclone/CatSite.git"
+  },
+  "keywords": [],
+  "author": "Christopher Pestano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chrisclone/CatSite/issues"
+  },
+  "homepage": "https://github.com/Chrisclone/CatSite#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}
