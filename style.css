@@ -5,32 +5,32 @@ html{
     font-family: "Roboto";
 }
 
+#small {
+    display: none;
+    position:fixed;
+    top:5px;
+    left:45vw;
+}
+
 button {
     cursor: pointer;
     border: none;
     background-color: #EAFFD2;
-}
-
-#query {
-    border: none;
-    width: 50vw;
-    height: 30px;
-    padding: 0px;
+    color: #FFD1E9;
 }
 
 .sbutton:hover {
     background-color: #8ef038;
 }
 
-.search {
-    margin: 10px 0px 10px 0px;
-}
 .tag {
     padding: 2px;
 }
 
 .sbutton {
     padding: 5px;
-    font-size: 12px;
-    height:30px;
+    font-size: 10vh;
+    height:30vh;
+    width:40vw;
+    margin-top: 35vh;
 }

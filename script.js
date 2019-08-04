@@ -6,41 +6,56 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var search = document.getElementsByClassName("sbutton")[0];
-
-search.addEventListener("click", function () {
-    var text = document.getElementById("query");
-    console.log(text.value);
-    text.value = "";
-});
-
-function catGet() {
-    var req = new XMLHttpRequest();
-
-    req.onreadystatechange = function () {
-        if (req.readyState == 4 && req.status == 200) {
-            var cat = req.responseText;
-        }
-    };
-
-    req.open("GET", "https://api.thecatapi.com/v1/images/search?size=full", true);
-    req.send();
-}
-
 var Cat = function (_React$Component) {
     _inherits(Cat, _React$Component);
 
-    function Cat() {
+    function Cat(props) {
         _classCallCheck(this, Cat);
 
-        return _possibleConstructorReturn(this, (Cat.__proto__ || Object.getPrototypeOf(Cat)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Cat.__proto__ || Object.getPrototypeOf(Cat)).call(this, props));
+
+        _this.state = { cat: null };
+        return _this;
     }
 
     _createClass(Cat, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var randomButton = document.getElementById("big");
+            var srandomButton = document.getElementById("small");
+
+            randomButton.addEventListener("click", function () {
+                randomButton.style.display = "none";
+                srandomButton.style.display = "block";
+            });
+        }
+    }, {
+        key: "rcatget",
+        value: function rcatget() {
+            var _this2 = this;
+
+            var req = new XMLHttpRequest();
+
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+
+                    console.log(req.responseText);
+                    _this2.response = req.responseText;
+                }
+            };
+
+            req.open("GET", "https://api.thecatapi.com/v1/images/search?size=full", true);
+
+            req.send();
+        }
+    }, {
         key: "render",
         value: function render() {
-            var a = new catGet();
-            return a.cat;
+            return React.createElement(
+                "div",
+                null,
+                this.state.cat
+            );
         }
     }]);
 
