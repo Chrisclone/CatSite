@@ -1,7 +1,8 @@
 class Cat extends React.Component {
+
     constructor(props){
         super(props);
-        this.state = {cat:null}
+        this.state = {cat: null};
     }
 
     componentDidMount(){
@@ -11,28 +12,41 @@ class Cat extends React.Component {
         randomButton.addEventListener("click", () => {
             randomButton.style.display = "none";
             srandomButton.style.display = "block";
+
+            let a = new this.rcatget();
+
+            a.then( (data) => {
+                console.log(data);
+                this.setState({
+                    cat:data[0].url
+                });
+            })
         })
+
+        srandomButton.addEventListener("click", ()=>{
+
+            let a = new this.rcatget();
+
+            a.then( (data) => {
+                console.log(data);
+                this.setState({
+                    cat:data[0].url
+                });
+            })
+        })
+
     }
 
     rcatget(){
-        const req = new XMLHttpRequest();
-
-        req.onreadystatechange = ()=>{
-            if (req.readyState == 4 && req.status == 200) {
-
-                console.log(req.responseText);
-                this.response = req.responseText;
-
-            }
-        }
-
-        req.open("GET","https://api.thecatapi.com/v1/images/search?size=full",true);
-
-        req.send();
+        return fetch("https://api.thecatapi.com/v1/images/search?size=full")
+        .then( response => response.json() )
+        .catch( (error) =>{
+            throw error;
+        });
     }
 
     render(){
-        return <div>{this.state.cat}</div>;
+        return <img src={this.state.cat} />;
     }
 }
 

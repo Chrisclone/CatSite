@@ -21,41 +21,50 @@ var Cat = function (_React$Component) {
     _createClass(Cat, [{
         key: "componentDidMount",
         value: function componentDidMount() {
+            var _this2 = this;
+
             var randomButton = document.getElementById("big");
             var srandomButton = document.getElementById("small");
 
             randomButton.addEventListener("click", function () {
                 randomButton.style.display = "none";
                 srandomButton.style.display = "block";
+
+                var a = new _this2.rcatget();
+
+                a.then(function (data) {
+                    console.log(data);
+                    _this2.setState({
+                        cat: data[0].url
+                    });
+                });
+            });
+
+            srandomButton.addEventListener("click", function () {
+
+                var a = new _this2.rcatget();
+
+                a.then(function (data) {
+                    console.log(data);
+                    _this2.setState({
+                        cat: data[0].url
+                    });
+                });
             });
         }
     }, {
         key: "rcatget",
         value: function rcatget() {
-            var _this2 = this;
-
-            var req = new XMLHttpRequest();
-
-            req.onreadystatechange = function () {
-                if (req.readyState == 4 && req.status == 200) {
-
-                    console.log(req.responseText);
-                    _this2.response = req.responseText;
-                }
-            };
-
-            req.open("GET", "https://api.thecatapi.com/v1/images/search?size=full", true);
-
-            req.send();
+            return fetch("https://api.thecatapi.com/v1/images/search?size=full").then(function (response) {
+                return response.json();
+            }).catch(function (error) {
+                throw error;
+            });
         }
     }, {
         key: "render",
         value: function render() {
-            return React.createElement(
-                "div",
-                null,
-                this.state.cat
-            );
+            return React.createElement("img", { src: this.state.cat });
         }
     }]);
 
