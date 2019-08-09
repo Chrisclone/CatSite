@@ -16,7 +16,7 @@ class Cat extends React.Component {
             let a = new this.rcatget();
 
             a.then( (data) => {
-                console.log(data);
+                console.log(JSON.stringify(data));
                 this.setState({
                     cat:data[0].url
                 });

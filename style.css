@@ -19,7 +19,7 @@ button:hover {
 #small {
     display: none;
     position:fixed;
-    right:5px;
+    right:10px;
     top:45vh;
 }
 

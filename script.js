@@ -33,7 +33,7 @@ var Cat = function (_React$Component) {
                 var a = new _this2.rcatget();
 
                 a.then(function (data) {
-                    console.log(data);
+                    console.log(JSON.stringify(data));
                     _this2.setState({
                         cat: data[0].url
                     });
