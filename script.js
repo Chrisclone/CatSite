@@ -64,7 +64,7 @@ var Cat = function (_React$Component) {
     }, {
         key: "render",
         value: function render() {
-            return React.createElement("img", { src: this.state.cat });
+            return React.createElement("img", { className: "pic", src: this.state.cat });
         }
     }]);
 

@@ -5,13 +5,6 @@ html{
     font-family: "Roboto";
 }
 
-#small {
-    display: none;
-    position:fixed;
-    top:5px;
-    left:45vw;
-}
-
 button {
     cursor: pointer;
     border: none;
@@ -19,8 +12,15 @@ button {
     color: #FFD1E9;
 }
 
-.sbutton:hover {
+button:hover {
     background-color: #8ef038;
+}
+
+#small {
+    display: none;
+    position:fixed;
+    right:5px;
+    top:45vh;
 }
 
 .tag {
@@ -33,4 +33,9 @@ button {
     height:30vh;
     width:40vw;
     margin-top: 35vh;
+}
+
+.pic {
+    height:70vh;
+    margin: 15vh auto 15vh auto;
 }

@@ -46,7 +46,7 @@ class Cat extends React.Component {
     }
 
     render(){
-        return <img src={this.state.cat} />;
+        return <img className="pic" src={this.state.cat} />;
     }
 }
 
